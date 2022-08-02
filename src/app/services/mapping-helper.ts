@@ -14,7 +14,6 @@ export function mapSearchUserToItem(user: any) {
 }
 
 export function mapPageToItem(post: any) {
-
   return {
       id: _.get(post.cmsTemplate2_post, 'id', null),
       author: _.get(post.cmsTemplate2_post.views.all.author.views.cmsTemplate2_All, 'firstName', '') + ' ' + _.get(post.cmsTemplate2_post.views.all.author.views.cmsTemplate2_All, 'lastName', ''),
@@ -29,6 +28,23 @@ export function mapPageToItem(post: any) {
       postImage: _.get(post.cmsTemplate2_post.views.all.postImage, 'imageUrl', ''),
       candeletePost: _.get(post.cmsTemplate2_post.actions, 'candeletePost', null),
       canchangePostStatus: _.get(post.cmsTemplate2_post.actions, 'canchangePostStatus', null),
+  }
+}
+
+export function mapPageFilterToItem(post: any) {
+  return {
+      id: _.get(post.cmsTemplate2_post, 'id', null),
+      postTitle: _.get(post.cmsTemplate2_post.views.all, 'postTitle', ''),
+      postImage: _.get(post.cmsTemplate2_post.views.all.postImage, 'imageUrl', ''),
+   
+  }
+}
+export function mapPageFilterCategoryToItem(post: any) {
+  return {
+      id: _.get(post.postCategory, 'id', null),
+      postTitle: _.get(post.postCategory.views.all, 'postTitle', ''),
+      postImage: _.get(post.postCategory.views.all.postImage, 'imageUrl', ''),
+   
   }
 }
 

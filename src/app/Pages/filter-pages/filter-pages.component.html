@@ -1,1 +1,40 @@
-<p>filter-pages works!</p>
+<div class="filter">
+  <app-btn
+    [btnText]="'Go to home page'"
+    (clickEvent)="gotToHomePage()"
+  ></app-btn>
+  <div *ngIf="filterType === 'by-category'">
+    <app-page-header [title]="'Filter By Category'"></app-page-header>
+    <div class="filter-container">
+      <div *ngFor="let item of categories" class="filter-item">
+        <span (click)="getPageByCategory(item.value)"> {{ item.name }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="filterType === 'by-users'">
+    <app-page-header [title]="'Filter By Users'"></app-page-header>
+    <app-loader *ngIf="isloaded"></app-loader>
+    <div *ngIf="!isloaded" class="filter-container">
+      <div *ngFor="let item of users" class="filter-item">
+        <span (click)="getPageByUsers(item.id)"> {{ item.name }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-pages">
+    <div *ngIf="isPagesloaded" class="loader">
+      <app-loader></app-loader>
+    </div>
+    <app-empty-state
+      [emptyLabel]="'No pages Found'"
+      *ngIf="!isPagesloaded && pages.length <= 0 && !isloaded"
+    ></app-empty-state>
+    <div class="filter-pages-container" *ngIf="!isPagesloaded">
+      <div *ngFor="let item of pages" class="filter-pages-item">
+        <img [src]="item.postImage" alt="" />
+        <div class="page-title">{{ item.postTitle }}</div>
+      </div>
+    </div>
+  </div>
+</div>

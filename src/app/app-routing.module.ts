@@ -1,3 +1,4 @@
+import { FilterPagesComponent } from './Pages/filter-pages/filter-pages.component';
 import { HomeComponent } from './Pages/home/home.component';
 
 import { NgModule } from '@angular/core';
@@ -9,7 +10,7 @@ const routes: Routes = [
 
   {path: "", component: UserInfoComponent},
   {path: "home", component: HomeComponent},
- 
+  {path: "filter-pages/:type", component: FilterPagesComponent},
 ];
 
 @NgModule({
@@ -17,6 +18,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-
 
  }

@@ -107,6 +107,67 @@ export class QueriesService {
     }
   `;
 
+  getPagesByUser = `
+    query getPagesByUsers($id: String!) {
+      system {
+        entities {
+          user(id: $id) {
+            queries {
+              cmsTemplate2_Posts(first:100) {
+                items {
+                  cmsTemplate2_post {
+                    id
+                    views {
+                      all {
+                        postTitle
+                        postImage {
+                          __typename
+                          ... on System_ImageMedia {
+                            imageUrl
+                            imageThumbnailUrl
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `
+
+
+  getPagesByCategories = `
+  query getPagesByCategories($category: String!){
+    cmsTemplate2{
+       queries{
+        cmsTemplate2_PostsByCategoty(first:10, category:$category){
+          items{
+            postCategory{
+              id
+              views{
+                all{
+                  postTitle
+                  postImage {
+                    __typename
+                    ... on System_ImageMedia {
+                      imageUrl
+                      imageThumbnailUrl
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
   getMoreUsers = `
   query getMoreUsers($cursor:String!){
     cmsTemplate2{

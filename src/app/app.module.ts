@@ -1,3 +1,5 @@
+import { EmptyStateComponent } from './Components/empty-state/empty-state.component';
+import { LoaderComponent } from './Components/loader/loader.component';
 import { BtnComponent } from './Components/btn/btn.component';
 import { UserInfoComponent } from './Pages/user-info/user-info.component';
 
@@ -29,7 +31,9 @@ import { FilterPagesComponent } from './Pages/filter-pages/filter-pages.componen
     NavBarComponent,
     BlockComponent,
     RightMenuComponent,
-    FilterPagesComponent
+    FilterPagesComponent,
+    LoaderComponent,
+    EmptyStateComponent
   ],
   imports: [
     BrowserModule,

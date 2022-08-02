@@ -33,6 +33,7 @@
           object-fit: cover;
           border-radius: 4px;
           flex-shrink: 0;
+          border: 1px solid #eeeeee;
         }
         &:hover{
             color: var(--blue-primary);
