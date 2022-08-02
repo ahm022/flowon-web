@@ -1,0 +1,21 @@
+<div *ngIf="categories.length > 0 " class="right-item">
+    <div class="right-item-content">
+        <div class="right-item-title">
+            By Categories
+        </div>
+        <div class="right-item-container">
+            <div *ngFor="let item of categories" class="right-item-item">
+                <span>{{item.name}}</span>
+                <span>></span>
+            </div>
+            <div class="right-item-item">
+                <span>Sports</span>
+                <span>></span> 
+            </div>
+        </div>
+        <div class="right-item-action">
+            View All
+        </div>
+    </div>
+</div>
+

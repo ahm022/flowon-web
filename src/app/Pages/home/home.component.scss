@@ -1,0 +1,10 @@
+.home-container{
+    display: flex;
+    app-block{
+        width: 100%;
+        width: calc(100% - 250px);
+    }
+    app-right-menu{
+        width: 250px;
+    }
+}
