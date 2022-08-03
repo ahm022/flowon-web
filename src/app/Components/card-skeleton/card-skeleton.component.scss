@@ -1,0 +1,40 @@
+.card-skeleton {
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    margin: auto;
+    animation: fadeIn 1s infinite;
+    .card-skeleton-container{
+        margin-top: 100px;
+        width: 100%;
+        .card-title{
+            width: 80%;
+            height: 20px;
+            background-color: #eeeeee;
+            margin-top: 20px;
+        }
+        .card-subtitle{
+            width: 70%;
+            height: 20px;
+            background-color: #eeeeee;
+            margin-top: 20px;
+        }
+        .card-image{
+            width: 100%;
+            height: 100vh;
+            max-width: 1000px;
+            max-height: 400px;
+            background-color: #eeeeee;
+        }
+    }
+}
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  

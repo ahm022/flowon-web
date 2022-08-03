@@ -53,9 +53,9 @@ export class RightMenuComponent implements OnInit {
       this.generalservice.navigateTo("filter-pages/by-users");
     }
   }
-  viewAllCategories(id?) {
+  viewAllCategories(id?, i? ) {
     if (id) {
-      this.generalservice.navigateTo("filter-pages/by-category/" + id);
+      this.generalservice.navigateTo("filter-pages/by-category/"+ id + "/" + i);
     } else {
       this.generalservice.navigateTo("filter-pages/by-category/");
     }

@@ -1,3 +1,4 @@
+import { PageDetailsComponent } from './Pages/page-details/page-details.component';
 import { FilterPagesComponent } from './Pages/filter-pages/filter-pages.component';
 import { HomeComponent } from './Pages/home/home.component';
 
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: "home", component: HomeComponent},
   {path: "filter-pages/:type", component: FilterPagesComponent},
   {path: "filter-pages/:type/:id/:index", component: FilterPagesComponent},
+  {path: "page-details/:id", component: PageDetailsComponent},
 ];
 
 @NgModule({

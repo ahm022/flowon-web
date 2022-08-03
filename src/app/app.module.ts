@@ -1,3 +1,5 @@
+import { DeleteDialogComponent } from './Components/delete-dialog/delete-dialog.component';
+import { PageDetailsComponent } from './Pages/page-details/page-details.component';
 import { EmptyStateComponent } from './Components/empty-state/empty-state.component';
 import { LoaderComponent } from './Components/loader/loader.component';
 import { BtnComponent } from './Components/btn/btn.component';
@@ -19,6 +21,8 @@ import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { BlockComponent } from './Components/block/block.component';
 import { RightMenuComponent } from './Components/right-menu/right-menu.component';
 import { FilterPagesComponent } from './Pages/filter-pages/filter-pages.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CardSkeletonComponent } from './Components/card-skeleton/card-skeleton.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,10 @@ import { FilterPagesComponent } from './Pages/filter-pages/filter-pages.componen
     RightMenuComponent,
     FilterPagesComponent,
     LoaderComponent,
-    EmptyStateComponent
+    EmptyStateComponent,
+    PageDetailsComponent,
+    DeleteDialogComponent,
+    CardSkeletonComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,8 @@ import { FilterPagesComponent } from './Pages/filter-pages/filter-pages.componen
     BrowserAnimationsModule,
     GraphqlModule,
     ApolloModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

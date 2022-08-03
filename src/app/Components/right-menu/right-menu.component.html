@@ -4,8 +4,8 @@
            Filter pages by Categories
         </div>
         <div class="right-item-container">
-            <div *ngFor="let item of categories" class="right-item-item">
-                <span (click)="viewAllCategories(item.value)">{{item.name}}</span>
+            <div *ngFor="let item of categories let i = index" class="right-item-item" (click)="viewAllCategories(item.value , i)">
+                <span >{{item.name}}</span>
             </div>
         </div>
         <div (click)="viewAllCategories()" class="right-item-action">

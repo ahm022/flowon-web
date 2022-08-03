@@ -93,4 +93,7 @@ export class FilterPagesComponent implements OnInit {
         this.isPagesloaded = false;
       });
   }
+  openPageDetails(id){
+    this.generalservice.navigateTo('/page-details/' + id)
+  }
 }

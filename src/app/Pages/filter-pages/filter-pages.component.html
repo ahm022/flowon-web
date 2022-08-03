@@ -32,7 +32,7 @@
     ></app-empty-state>
     
     <div class="filter-pages-container" *ngIf="!isPagesloaded">
-      <div *ngFor="let item of pages" class="filter-pages-item">
+      <div *ngFor="let item of pages" class="filter-pages-item" (click)="openPageDetails(item.id)" >
         <img [src]="item.postImage" alt="" />
         <div class="page-title">{{ item.postTitle }}</div>
       </div>
