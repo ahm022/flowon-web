@@ -3,14 +3,23 @@
   .block-container {
     box-shadow: 1px 1px 20px 4px #cfcfcf;
     padding: 20px;
+    margin-top: 20px;
     .block-title {
       text-transform: capitalize;
       padding-bottom: 20px;
       border-bottom: 1px solid #eeeeee;
       font-size: 24px;
       color: var(--blue-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      img{
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
     }
-    .block-pages {
+    .block-page {
         display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -40,5 +49,13 @@
         }
       }
     }
+  }
+}
+.loader-page{
+  display: flex;
+  justify-content: center;
+    margin-top: 20px;
+    img{
+      height: 30px;
   }
 }

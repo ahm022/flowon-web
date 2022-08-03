@@ -14,6 +14,7 @@ export class BlockComponent implements OnInit {
   postsBlocks:[];
   cursor: any;
   isloaded;
+  loadImage
   layoutId = "b7fa81cc-dce6-456e-bcd4-92423d1fbe83";
   showIndex:any;
   constructor(private graphqlService: GraphqlService, private queries:QueriesService,private generalservice: GeneralService) { }
@@ -39,11 +40,14 @@ export class BlockComponent implements OnInit {
   }
 
   getPostOf(x,i) {
+    this.loadImage = true
    this.showIndex = i;
    console.log("this.showIndex",this.showIndex)
     this.graphqlService.getGraphQL(this.queries.getPostByBlock, { blockId:x }).then((postData) => {
       this.postsBlocks =  _.get(postData, "cmsTemplate2.entities.block.queries.posts.items", []).map((x: any) => mapBlockPostToItem(x));
 
+    }).finally(()=>{
+      this.loadImage = false
     })
   }
 

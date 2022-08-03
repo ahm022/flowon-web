@@ -2,14 +2,19 @@
     <div class="block-container" *ngFor="let item of Blocks ; index as i">
         <div class="block-title" >
            {{ item.blockName }}
-           <div (click)="getPostOf(item.id , i)"> show pages </div>
+           <img src="../../../assets/icons/plus-blue.svg" (click)="getPostOf(item.id , i)">
         </div>
        
-        <div *ngIf="postsBlocks && showIndex === i" class="block-pages">
+        <div *ngIf="postsBlocks && showIndex === i">
+          <div *ngIf="loadImage" class="loader-page">
+              <img  src="../../../assets/icons/loader.svg">
+          </div>
+          <div class="block-page">
             <div *ngFor="let y of postsBlocks">
-              <div class="block-pages-item" (click)="openPageDetails(y)">
+              <div *ngIf="!loadImage" class="block-pages-item" (click)="openPageDetails(y)">
                 <img *ngIf="y.postImage" [src]="y.postImage" />
                 <div class="page-title">{{y.postTitle}}</div>
+              </div>
               </div>
             </div>
         </div>
