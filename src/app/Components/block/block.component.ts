@@ -53,7 +53,9 @@ export class BlockComponent implements OnInit {
 
   openPageDetails(item){
     console.log("item",item)
-    this.generalservice.navigateTo('/FlowCms/' + item.slug + '/' + item.id)
+    this.generalservice.pageId = item.id;
+    this.generalservice.navigateTo('/FlowCms/' + item.slug)
+   
   }
 
 }

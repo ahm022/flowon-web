@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: "home", component: HomeComponent},
   {path: "filter-pages/:type", component: FilterPagesComponent},
   {path: "filter-pages/:type/:id/:index", component: FilterPagesComponent},
-  {path: "FlowCms/:slug/:id", component: PageDetailsComponent},
+  {path: "FlowCms/:slug", component: PageDetailsComponent},
 ];
 
 @NgModule({

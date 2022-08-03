@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class GeneralService {
-
+  pageId:any;
   constructor(private _liveAnnouncer: LiveAnnouncer, private route: Router) {}
   loader = false;
   selectedIndex;

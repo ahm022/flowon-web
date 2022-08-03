@@ -18,7 +18,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PageDetailsComponent implements OnInit {
   loader;
-  pageId
+  pageId = this.generalService.pageId
   page
   comments: []
   commentLoader
@@ -27,18 +27,15 @@ export class PageDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loader = true
-    this.activateRoute.params.subscribe((res) => {
-      this.pageId = res.id
-      this.graphqlService
-        .getGraphQL(this.queries.singlePageQuery, { pageId: this.pageId })
-        .then((results) => {
-          console.log('res', results);
-          this.page = results.cmsTemplate2.entities.post.views.all;
-        })
-        .finally(() => {
-          this.loader=false
-          this.getPageComment()
-        });
+    this.graphqlService
+    .getGraphQL(this.queries.singlePageQuery, { pageId: this.pageId })
+    .then((results) => {
+      console.log('res', results);
+      this.page = results.cmsTemplate2.entities.post.views.all;
+    })
+    .finally(() => {
+      this.loader=false
+      this.getPageComment()
     });
     this.prepareForm()
   }
