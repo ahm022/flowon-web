@@ -28,8 +28,9 @@
     </div>
     <app-empty-state
       [emptyLabel]="'No pages Found'"
-      *ngIf="!isPagesloaded && pages.length <= 0 && !isloaded"
+      *ngIf="!isPagesloaded && pages.length <= 0"
     ></app-empty-state>
+    
     <div class="filter-pages-container" *ngIf="!isPagesloaded">
       <div *ngFor="let item of pages" class="filter-pages-item">
         <img [src]="item.postImage" alt="" />
