@@ -120,6 +120,7 @@ export class QueriesService {
                     views {
                       all {
                         postTitle
+                        slug
                         postImage {
                           __typename
                           ... on System_ImageMedia {
@@ -151,6 +152,7 @@ export class QueriesService {
               views{
                 all{
                   postTitle
+                  slug
                   postImage {
                     __typename
                     ... on System_ImageMedia {
@@ -637,8 +639,7 @@ export class QueriesService {
                       contentSelection
                       sortingBy
                       sorting
-                      createdBy
-                      createdDate
+                      blockName
                     }
                   }
                 }

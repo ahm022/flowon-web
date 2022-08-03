@@ -35,7 +35,9 @@ export function mapPageFilterToItem(post: any) {
   return {
       id: _.get(post.cmsTemplate2_post, 'id', null),
       postTitle: _.get(post.cmsTemplate2_post.views.all, 'postTitle', ''),
+      slug: _.get(post.cmsTemplate2_post.views.all, 'slug', ''),
       postImage: _.get(post.cmsTemplate2_post.views.all.postImage, 'imageUrl', ''),
+
    
   }
 }
@@ -43,6 +45,7 @@ export function mapPageFilterCategoryToItem(post: any) {
   return {
       id: _.get(post.postCategory, 'id', null),
       postTitle: _.get(post.postCategory.views.all, 'postTitle', ''),
+      slug: _.get(post.cmsTemplate2_post.views.all, 'slug', ''),
       postImage: _.get(post.postCategory.views.all.postImage, 'imageUrl', ''),
    
   }
@@ -64,11 +67,7 @@ export function mapCategories(category: any) {
 export function mapSearchLayoutToItem(block: any) {
     return {
         id: _.get(block.cmsTemplate2_Block, 'id', null),
-        contentSelection: _.get(block.cmsTemplate2_Block.views.all, 'contentSelection', null),
-        sortingBy: _.get(block.cmsTemplate2_Block.views.all, 'sortingBy', null),
-        createdDate: _.get(block.cmsTemplate2_Block.views.all, 'createdDate', null),
-        pageCount: _.get(block.cmsTemplate2_Block.views.all,'pageCount', null),
-        sorting: _.get(block.cmsTemplate2_Block.views.all, 'sorting', null),
+        blockName: _.get(block.cmsTemplate2_Block.views.all, 'blockName', null),
     }
   }
   export function mapBlockPostToItem(block: any) {

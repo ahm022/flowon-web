@@ -93,7 +93,8 @@ export class FilterPagesComponent implements OnInit {
         this.isPagesloaded = false;
       });
   }
-  openPageDetails(id){
-    this.generalservice.navigateTo('/page-details/' + id)
+  openPageDetails(item){
+    console.log("item",item)
+    this.generalservice.navigateTo('/FlowCms/' + item.slug + '/' + item.id)
   }
 }
