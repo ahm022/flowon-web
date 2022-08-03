@@ -36,7 +36,7 @@ export class UserInfoComponent implements OnInit {
     .getGraphQL(this.queries.createUserMutation, {userInfo: this.userFormGroup.value})
     .then((data) => {
       console.log(data);
-      this.generalService.navigateTo('dashboard/pages')
+      this.generalService.navigateTo('home')
     });
   }
 

@@ -1,0 +1,33 @@
+<div  class="right-item">
+    <div class="right-item-content">
+        <div class="right-item-title">
+           Filter pages by Categories
+        </div>
+        <div class="right-item-container">
+            <div *ngFor="let item of categories let i = index" class="right-item-item" (click)="viewAllCategories(item.value , i)">
+                <span >{{item.name}}</span>
+            </div>
+        </div>
+        <div (click)="viewAllCategories()" class="right-item-action">
+            View All
+        </div>
+    </div>
+        <app-loader *ngIf="isloaded"></app-loader>
+    <div *ngIf=" !isloaded" class="right-item-content">
+        <div class="right-item-title">
+            Filter pages by users
+        </div>
+        <div class="right-item-container">
+            <div *ngFor="let item of users let i = index" (click)="viewAllUsers(item.id , i)" class="right-item-item">
+                <span >{{item.name}}</span>
+                
+            </div>
+        </div>
+        <div (click)="viewAllUsers()" class="right-item-action">
+            View All
+        </div>
+    </div>
+</div>
+
+
+

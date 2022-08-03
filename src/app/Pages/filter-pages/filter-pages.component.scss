@@ -1,0 +1,66 @@
+.filter {
+  padding: 20px;
+  .filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 20px;
+    .filter-item {
+      font-size: 13px;
+      padding: 8px;
+      border: 1px solid #eeeeee;
+      color: gray;
+      cursor: pointer;
+      &:hover {
+        color: var(--blue-primary);
+      }
+      &.active{
+        color: white;
+        background-color: var(--blue-primary);
+      }
+    }
+  }
+  .filter-pages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    .filter-pages-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .filter-pages-item {
+      border: 1px solid #eeeeee;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      color: gray;
+      gap: 12px;
+      cursor: pointer;
+      .title {
+        flex-shrink: 0;
+      }
+      img {
+        width: 36px;
+        height: 36px;
+        object-fit: cover;
+        border-radius: 4px;
+        flex-shrink: 0;
+      }
+      &:hover {
+        color: var(--blue-primary);
+      }
+      &.active{
+        background-color: var(--blue-primary);
+        color: white;
+      }
+    }
+  }
+  .loader{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
