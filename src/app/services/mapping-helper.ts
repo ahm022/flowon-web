@@ -45,7 +45,7 @@ export function mapPageFilterCategoryToItem(post: any) {
   return {
       id: _.get(post.postCategory, 'id', null),
       postTitle: _.get(post.postCategory.views.all, 'postTitle', ''),
-      slug: _.get(post.cmsTemplate2_post.views.all, 'slug', ''),
+      slug: _.get(post.postCategory.views.all, 'slug', ''),
       postImage: _.get(post.postCategory.views.all.postImage, 'imageUrl', ''),
    
   }
