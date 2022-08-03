@@ -74,6 +74,7 @@ export function mapSearchLayoutToItem(block: any) {
     return {
       id: _.get(block.cmsTemplate2_post, 'id', null),
       postTitle: _.get(block.cmsTemplate2_post.views.all, 'postTitle', ''),
+      slug: _.get(block.cmsTemplate2_post.views.all, 'slug', ''),
       postImage: _.get(block.cmsTemplate2_post.views.all.postImage, 'imageUrl', ''),
     }
   }

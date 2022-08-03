@@ -982,6 +982,7 @@ getPostByBlock = `
                   views{
                     all{
                       postTitle
+                      slug
                       postImage{
                         __typename ... on System_ImageMedia{
                           imageUrl
