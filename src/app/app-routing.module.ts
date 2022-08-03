@@ -11,6 +11,7 @@ const routes: Routes = [
   {path: "", component: UserInfoComponent},
   {path: "home", component: HomeComponent},
   {path: "filter-pages/:type", component: FilterPagesComponent},
+  {path: "filter-pages/:type/:id/:index", component: FilterPagesComponent},
 ];
 
 @NgModule({

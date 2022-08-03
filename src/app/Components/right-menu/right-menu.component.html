@@ -5,7 +5,7 @@
         </div>
         <div class="right-item-container">
             <div *ngFor="let item of categories" class="right-item-item">
-                <span>{{item.name}}</span>
+                <span (click)="viewAllCategories(item.value)">{{item.name}}</span>
             </div>
         </div>
         <div (click)="viewAllCategories()" class="right-item-action">
@@ -18,8 +18,9 @@
             Filter pages by users
         </div>
         <div class="right-item-container">
-            <div *ngFor="let item of users" class="right-item-item">
-                <span>{{item.name}}</span>
+            <div *ngFor="let item of users let i = index" (click)="viewAllUsers(item.id , i)" class="right-item-item">
+                <span >{{item.name}}</span>
+                
             </div>
         </div>
         <div (click)="viewAllUsers()" class="right-item-action">

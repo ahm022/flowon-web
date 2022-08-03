@@ -19,16 +19,25 @@ export class FilterPagesComponent implements OnInit {
   isPagesloaded
   filterType
   pages = []
-
+  filterId;
+  selectedIndex;
   constructor( private generalservice: GeneralService, private graphqlService : GraphqlService, private queries: QueriesService, private activeRoute:ActivatedRoute) {}
   ngOnInit(): void {
     this.activeRoute.params.subscribe((res)=>{
       this.filterType = res.type
+      this.filterId = res.id
+      this.selectedIndex = +res.index
     })
     this.getUsers()
-    console.log(this.filterType);
+    if(this.filterId && this.filterType === "by-category") {
+      this.getPageByCategory(this.filterId, this.selectedIndex)
+    }if(this.filterId && this.filterType === "by-users"){
+      this.getPageByUsers(this.filterId, this.selectedIndex)
+    }
+    
   }
-  getPageByCategory(id) {
+  getPageByCategory(id, i) {
+    this.selectedIndex = i;
     this.isPagesloaded = true;
     this.graphqlService
       .getGraphQL(this.queries.getPagesByCategories, {category:id})
@@ -66,7 +75,8 @@ export class FilterPagesComponent implements OnInit {
         this.isloaded = false;
       });
   }
-  getPageByUsers(id) {
+  getPageByUsers(id, i ) {
+    this.selectedIndex = i
     this.isPagesloaded = true;
     this.graphqlService
       .getGraphQL(this.queries.getPagesByUser, {id:id})

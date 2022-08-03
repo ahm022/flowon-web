@@ -1,28 +1,30 @@
-import { QueriesService } from './../../services/queries.service';
-import { GraphqlService } from './../../services/graphql.service';
-import { GeneralService } from './../../services/general.service';
-import { Component, OnInit } from '@angular/core';
-import { mapSearchUserToItem } from 'src/app/services/mapping-helper';
-import * as _ from 'lodash';
+import { QueriesService } from "./../../services/queries.service";
+import { GraphqlService } from "./../../services/graphql.service";
+import { GeneralService } from "./../../services/general.service";
+import { Component, OnInit } from "@angular/core";
+import { mapSearchUserToItem } from "src/app/services/mapping-helper";
+import * as _ from "lodash";
 @Component({
-  selector: 'app-right-menu',
-  templateUrl: './right-menu.component.html',
-  styleUrls: ['./right-menu.component.scss']
+  selector: "app-right-menu",
+  templateUrl: "./right-menu.component.html",
+  styleUrls: ["./right-menu.component.scss"],
 })
 export class RightMenuComponent implements OnInit {
-  categories = JSON.parse(localStorage.getItem('categories')).slice(0,3);
-  loadMore
+  categories = JSON.parse(localStorage.getItem("categories")).slice(0, 3);
+  loadMore;
   users: [];
   cursor: any;
   isloaded;
-  constructor( private generalservice: GeneralService, private graphqlService : GraphqlService, private queries: QueriesService) { }
+  constructor(
+    private generalservice: GeneralService,
+    private graphqlService: GraphqlService,
+    private queries: QueriesService
+  ) {}
 
   ngOnInit(): void {
-    this.getUsers()
+    this.getUsers();
   }
-  viewAllCategories() {
-    this.generalservice.navigateTo('filter-pages/by-category')
-  }
+
   getUsers() {
     this.isloaded = true;
     this.graphqlService
@@ -31,9 +33,11 @@ export class RightMenuComponent implements OnInit {
         console.log(results);
         this.users = _.get(
           results,
-          'cmsTemplate2.queries.cmsTemplate2_Users.items',
+          "cmsTemplate2.queries.cmsTemplate2_Users.items",
           []
-        ).map((x: any) => mapSearchUserToItem(x)).slice(0,3);
+        )
+          .map((x: any) => mapSearchUserToItem(x))
+          .slice(0, 3);
 
         this.cursor = results.cmsTemplate2.queries.cmsTemplate2_Users.cursor;
       })
@@ -42,7 +46,18 @@ export class RightMenuComponent implements OnInit {
       });
   }
 
-  viewAllUsers() {
-    this.generalservice.navigateTo('filter-pages/by-users')
+  viewAllUsers(id, i) {
+    if (id) {
+      this.generalservice.navigateTo("filter-pages/by-users/"+ id + "/" + i);
+    } else {
+      this.generalservice.navigateTo("filter-pages/by-users");
+    }
+  }
+  viewAllCategories(id?) {
+    if (id) {
+      this.generalservice.navigateTo("filter-pages/by-category/" + id);
+    } else {
+      this.generalservice.navigateTo("filter-pages/by-category/");
+    }
   }
 }

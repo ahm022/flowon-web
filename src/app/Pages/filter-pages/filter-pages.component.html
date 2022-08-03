@@ -6,8 +6,8 @@
   <div *ngIf="filterType === 'by-category'">
     <app-page-header [title]="'Filter By Category'"></app-page-header>
     <div class="filter-container">
-      <div *ngFor="let item of categories" class="filter-item">
-        <span (click)="getPageByCategory(item.value)"> {{ item.name }}</span>
+      <div *ngFor="let item of categories let i = index" (click)="getPageByCategory(item.value, i)" [class]="selectedIndex === i ? 'filter-item active':'filter-item'">
+        <span > {{ item.name }}</span>
       </div>
     </div>
   </div>
@@ -16,8 +16,8 @@
     <app-page-header [title]="'Filter By Users'"></app-page-header>
     <app-loader *ngIf="isloaded"></app-loader>
     <div *ngIf="!isloaded" class="filter-container">
-      <div *ngFor="let item of users" class="filter-item">
-        <span (click)="getPageByUsers(item.id)"> {{ item.name }}</span>
+      <div *ngFor="let item of users let i = index" [class]="selectedIndex === i ? 'filter-item active':'filter-item'" (click)="getPageByUsers(item.id , i)">
+        <span > {{ item.name }}</span>
       </div>
     </div>
   </div>
